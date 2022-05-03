@@ -1,0 +1,252 @@
+*{
+    margin: 0%;
+    padding: 0;
+    border:0;
+
+}
+.container{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   
+    
+    
+}
+.content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+   
+   
+}
+.header{
+    height: 100px;
+    width: auto;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 30px;
+}
+.detalhe{
+color: #8F0707;
+}
+
+.sessao1{
+    background-color: rgb(240, 240, 240);
+    height:auto;
+    border-radius: 10px 10px 0px 0px ;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-bottom: 50px;
+    
+}
+.empresa{
+    margin-left: 10px;
+    font-size: 30px;
+    font-weight: 900;
+    color: #8F0707;
+}
+.titulo{
+    font-size: 20px;
+    color: rgb(122, 122, 122);
+    font-weight: 600;
+    margin-left: 10px;
+    
+}
+.foto img{
+    width: 10vw;
+    height: auto;
+    position: relative;
+    top: -50px;
+    left: 5%;
+    border-radius: 50%;
+    border: solid 5px #8F0707;
+}
+.logo{
+    width: 8vw;
+    height: auto;
+    
+}
+.conteudo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+}
+
+.lista{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 5;
+}
+
+.qrcode{
+    flex-grow: 3;
+    
+}
+.item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 0px 15px 15px 0px ;
+    margin: 5px 5px 5px 0px;
+    align-items: center;
+    
+}
+.icone{
+    width: 2vw;
+    margin-right: 50px;
+    flex-grow: 2;
+}
+.itemTexto{
+    margin-right: 40px;
+    flex-basis: 100px;
+    flex-grow: 5;
+    font-size: 2vw;
+}
+.partilhar{
+    text-decoration: none;
+    flex-grow: 2;
+    font-size: 18px;
+    background-color: #8F0707;
+    padding: 5px;
+    color: aliceblue;
+    border-radius: 5px;
+    width: 2vw;
+    text-align: center;
+    margin-right: 10px;
+}
+.marca{
+    position: fixed;
+    bottom: 10px;
+    z-index: 0;
+    width: 48vw;
+    height: auto;
+
+}
+
+#inf{
+    position: absolute;
+    z-index: 5;
+    padding: 20px;
+    margin-top: 10px;
+ height: 300px;
+    
+}
+#inf h2{
+    color: #8F0707;
+}
+.qrcode img{
+    width: 50px;
+    height: auto;
+    margin: 20px;
+}
+.qrcode {
+    padding: 20px;
+    background-color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    
+}
+@media (max-width: 1200px) and (min-width:900px) {
+    .itemTexto{
+        margin-right: 40px;
+        flex-basis: 70px;
+        flex-grow: 3;
+        font-size: 2.4vw;
+    }
+    .foto img{
+        width: 10.5vw;
+        height: auto;
+        position: relative;
+        top: -30px;
+        left: 5%;
+        border-radius: 50%;
+        border: solid 3px #8F0707;
+    }
+    .logo{
+        width: 8.8vw;
+        height: auto;
+        
+    }
+}
+@media (max-width: 901px) and (min-width:600px) {
+    .itemTexto{
+        margin-right: 40px;
+        flex-basis: 30px;
+        flex-grow: 1;
+        font-size: 2vw;
+    }
+    .conteudo{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        z-index: 1;
+    }
+    .icone{
+        width: 4vw;
+        margin-right: 10px;
+        flex-grow: 1;
+    }
+    .header{
+        height: 100px;
+        width: auto;
+        display:flex;
+        flex-direction: column;
+       align-items: center;
+        margin-right: 30px;
+    }
+    .logo{
+        width: 9.5vw;
+        height: auto;
+        
+    }
+    
+    
+}
+@media (max-width: 601px) and (min-width:0px) {
+    .itemTexto{
+        margin-right: 20px;
+        flex-basis: 10px;
+        flex-grow: 1;
+        font-size: 2vw;
+    }
+    .conteudo{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        z-index: 1;
+    }
+    .icone{
+        width: 4.8vw;
+        margin-right: 10px;
+        flex-grow: 1;
+    }
+    .header{
+        height: 100px;
+        width: auto;
+        display:flex;
+        flex-direction: column;
+       align-items: center;
+        margin-right: 30px;
+    }
+    .foto img{
+        width: 10.8vw;
+        height: auto;
+        position: relative;
+        top: -10px;
+        left: 5%;
+        border-radius: 50%;
+        border: solid 2px #8F0707;
+    } 
+    .logo{
+        width: 12vw;
+        height: auto;
+        
+    }
+}

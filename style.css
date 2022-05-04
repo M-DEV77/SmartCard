@@ -109,7 +109,7 @@ color: #8F0707;
 .partilhar{
     text-decoration: none;
     flex-grow: 2;
-    font-size: 18px;
+    font-size: 2vw;
     background-color: #8F0707;
     padding: 5px;
     color: aliceblue;
@@ -117,6 +117,8 @@ color: #8F0707;
     width: 2vw;
     text-align: center;
     margin-right: 10px;
+    cursor: pointer;
+
 }
 .marca{
     position: fixed;

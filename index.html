@@ -40,9 +40,9 @@ display: none;
             <button id="btn1" onclick="ingles()" class="partilhar">Português</button>
         </li>
         <li class="item">
-            <a href=""><img src="./img/whats.svg" alt="icone" class="icone"></a>
+            <a href="https://wa.me/+5541992764459?text=Ola%20souMarcelo%20este%20é%20meu%20WhatsApp"><img src="./img/whats.svg" alt="icone" class="icone"></a>
             <p class="itemTexto">WhatsApp:</p>
-            <a href="" class="partilhar">partilhar</a>
+            <button  onclick="share('+5541992764459')" class="partilhar">Partilhar</button>
         </li>
         <li class="item">
             <a href=""><img src="./img/email.svg" alt="icone" class="icone"></a>
@@ -67,7 +67,7 @@ display: none;
         <li class="item">
             <a href=""><img src="./img/globo.svg" alt="icone" class="icone"></a>
             <p class="itemTexto">Site:</p>
-            <a href="" class="partilhar">partilhar</a>
+            <button  onclick="share('https://premoaco.com.br/')" class="partilhar">Partilhar</button>
         </li>
        
     </ul>
@@ -95,7 +95,17 @@ display: none;
 </div>
 </div>
 <script>
-
+function share(rede){
+	if (navigator.share !== undefined) {
+		navigator.share({
+			title: 'Smartcard',
+			text: 'Smartcard Paulo',
+			url:rede,
+		})
+		.then(() => console.log('Successful share'))
+		.catch((error) => console.log('Error sharing', error));
+	}
+}
    
 function ingles(){
     document.getElementById("btn2").style.display="block";

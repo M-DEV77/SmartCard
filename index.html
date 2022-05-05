@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Paulo Ricardo" />
+    <meta property="og:description" content="Premoaço">
+    <meta property="og:url" content="https://premoaco.com.br/"/>
+    <meta property="og:image" content="./img/logo3.svg" />
+    <meta property="og:type" content="website" />
     <link rel="stylesheet" href="./style.css">
-    <link rel="shortcut icon" href="./img/logo.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="./img/logo3.svg" type="image/x-icon">
     <script src="./js/qrcode.min.js"></script>
-    <title>Smart Card</title>
+    <title>Paulo Ricardo</title>
 </head>
 <body onload="partilhar()">
 <style>
@@ -68,7 +73,7 @@ display: none;
         </li-->
         <li class="item">
             <a href=" https://premoaco.com.br"><img src="./img/globo.svg" alt="icone" class="icone"></a>
-            <p class="itemTexto"><b>Site:</b> https://premoaco.com.br</p>
+            <p  class="itemTexto"><b>Site:</b> https://premoaco.com.br</p>
             <button  onclick="site('https://premoaco.com.br/')"class="partilhar">QRCODE</button>
         </li>
         <li class="item">
@@ -78,7 +83,7 @@ display: none;
         </li>
         <li class="item">
             <a href=""><img src="./img/partilhar.svg" alt="icone" class="icone"></a>
-            <p id="part" class="itemTexto"><b>Partilhar</b></p>
+            <p id="site" id="part" class="itemTexto"><b>Partilhar</b></p>
             <button  onclick="share('https://premoaco.com.br/smart-card')"class="partilhar">PARTILHAR</button>
         </li>
        
@@ -122,9 +127,6 @@ if(le<=400){
     window.scrollTo(0,1);
 
 }
-    
-    
-
 
  ////função do qr code 
  window.onload = partilha();

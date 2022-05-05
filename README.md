@@ -7,6 +7,6 @@
 * NOME:
 * EMPRESA:
 ## Lista de Objetivos.
--[} Criar modelo front End     [ok]
+- [] Criar modelo front End     [ok]
 * Criar API com as funções  [  ]
 * Criar sistemas de usuarios [  ]

@@ -53,7 +53,7 @@ color: #8F0707;
     
 }
 .foto img{
-    width: 10vw;
+    width: 12vw;
     height: auto;
     position: relative;
     top: -50px;
@@ -77,13 +77,9 @@ color: #8F0707;
 .lista{
     display: flex;
     flex-direction: column;
-    flex-grow: 5;
+    flex-grow: 8;
 }
 
-.qrcode{
-    flex-grow: 3;
-    
-}
 .item{
     display: flex;
     flex-direction: row;
@@ -103,12 +99,12 @@ color: #8F0707;
 .itemTexto{
     margin-right: 40px;
     flex-basis: 100px;
-    flex-grow: 5;
-    font-size: 2vw;
+    flex-grow: 1;
+    font-size: 1.5vw;
 }
 .partilhar{
     text-decoration: none;
-    flex-grow: 2;
+    flex-grow: 1;
     font-size: 2vw;
     background-color: #8F0707;
     padding: 5px;
@@ -140,19 +136,16 @@ color: #8F0707;
 #inf h2{
     color: #8F0707;
 }
-.qrcode img{
-    width: 50px;
-    height: auto;
-    margin: 20px;
-}
-.qrcode {
+
+.qrcode{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    background-color: white;
-    margin-left: 10px;
-    margin-right: 10px;
-    border-radius: 5px;
-    
 }
+
 @media (max-width: 1200px) and (min-width:900px) {
     .itemTexto{
         margin-right: 40px;
@@ -173,6 +166,13 @@ color: #8F0707;
         width: 8.8vw;
         height: auto;
         
+    }
+    .conteudo{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        z-index: 1;
     }
 }
 @media (max-width: 901px) and (min-width:600px) {
@@ -238,10 +238,10 @@ color: #8F0707;
         margin-right: 30px;
     }
     .foto img{
-        width: 10.8vw;
+        width: 15vw;
         height: auto;
         position: relative;
-        top: -10px;
+        top: -5px;
         left: 5%;
         border-radius: 50%;
         border: solid 2px #8F0707;

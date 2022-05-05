@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <link rel="shortcut icon" href="./img/logo.svg" type="image/x-icon">
+    <script src="./js/qrcode.min.js"></script>
     <title>Smart Card</title>
 </head>
-<body>
+<body onload="partilhar()">
 <style>
 #btn1{
 display: none;
@@ -35,26 +36,27 @@ display: none;
     <ul class="lista">
         <li class="item">
             <a href="#inf"><img src="./img/info.svg" alt="icone" class="icone"></a>
-            <p id="itemTexto" class="itemTexto">Informações:</p>
-            <button id="btn2" onclick="portugues()" class="partilhar">Ingles</button>
-            <button id="btn1" onclick="ingles()" class="partilhar">Português</button>
+            <p id="itemTexto" class="itemTexto"><b>Informações:</b></p>
+            <button id="btn2" onclick="portugues()" class="partilhar">INGLES</button>
+            <button id="btn1" onclick="ingles()" class="partilhar">PORTUGUÊS</button>
         </li>
         <li class="item">
-            <a href="https://wa.me/+5541992764459?text=Ola%20souMarcelo%20este%20é%20meu%20WhatsApp"><img src="./img/whats.svg" alt="icone" class="icone"></a>
-            <p class="itemTexto">WhatsApp:</p>
-            <button  onclick="share('+5541992764459')" class="partilhar">Partilhar</button>
+            <a href="https://wa.me/554199866573?text=Ola,%20sou%20Paulo%20Ricardo,%20este%20é%20meu%20WhatsApp"><img src="./img/whats.svg" alt="icone" class="icone"></a>
+            <p class="itemTexto"><b>WhatsApp:</b> +55 41-9986-6573</p>
+            <button  onclick="whats('+554199866573')" class="partilhar">QRCODE</button>
         </li>
         <li class="item">
-            <a href=""><img src="./img/email.svg" alt="icone" class="icone"></a>
-            <p class="itemTexto">E-mail:</p>
-            <a href="" class="partilhar">partilhar</a>
+            <a href="mailto:paulo@eiffelconstrutora.com.br"><img src="./img/email.svg" alt="icone" class="icone"></a>
+            <p class="itemTexto"><b>E-mail:</b> paulo@eiffelconstrutora.com.br</p>
+            <button  onclick="email('mailto:paulo@eiffelconstrutora.com.br')" class="partilhar">QRCODE</button>
         </li>
         <li class="item">
-            <a href=""><img src="./img/telefone.svg" alt="icone" class="icone"></a>
-            <p id="telefone" class="itemTexto">Telefone:</p>
-            <a href="" class="partilhar">partilhar</a>
+            <a href="tel:+554136678384"><img src="./img/telefone.svg" alt="icone" class="icone"></a>
+            <p id="telefone" class="itemTexto"><b>Telefone:</b> +55 41-3667-8384</p>
+            <button  onclick="tel('+554136678384')" class="partilhar">QRCODE</button>
         </li>
-        <li class="item">
+        
+        <!--li class="item">
             <a href=""><img src="./img/Instagram.svg" alt="icone" class="icone"></a>
             <p class="itemTexto">Instagram:</p>
             <a href="" class="partilhar">partilhar</a>
@@ -63,30 +65,41 @@ display: none;
             <a href=""><img src="./img/Skype.svg" alt="icone" class="icone"></a>
             <p class="itemTexto">Skype:</p>
             <a href="" class="partilhar">partilhar</a>
+        </li-->
+        <li class="item">
+            <a href=" https://premoaco.com.br"><img src="./img/globo.svg" alt="icone" class="icone"></a>
+            <p class="itemTexto"><b>Site:</b> https://premoaco.com.br</p>
+            <button  onclick="site('https://premoaco.com.br/')"class="partilhar">QRCODE</button>
         </li>
         <li class="item">
-            <a href=""><img src="./img/globo.svg" alt="icone" class="icone"></a>
-            <p class="itemTexto">Site:</p>
-            <button  onclick="share('https://premoaco.com.br/')" class="partilhar">Partilhar</button>
+            <a href="https://premoaco.com.br/smart-card"><img src="./img/card.svg" alt="icone" class="icone"></a>
+            <p class="itemTexto"><b>Smart:</b> https://premoaco.com.br/smart-card</p>
+            <button  onclick="partilha()"class="partilhar">QRCODE</button>
+        </li>
+        <li class="item">
+            <a href=""><img src="./img/partilhar.svg" alt="icone" class="icone"></a>
+            <p id="part" class="itemTexto"><b>Partilhar</b></p>
+            <button  onclick="share('https://premoaco.com.br/smart-card')"class="partilhar">PARTILHAR</button>
         </li>
        
     </ul>
     
-   <img src="./img/qrcode.png" alt="" class="qrcode">
+   <div id="qrcode" class="qrcode"></div>
 </div>
 <div id="inf">
     <h2 id="infTitulo">Informações</h2>
-    <p id="inform"> Como o nome sugere, Informe de Rendimentos da Pessoa Física é um documento no qual constam todos os ganhos de 
-        um indivíduo ao longo de um período determinado.
-        Normalmente, ele se refere ao ano imediatamente anterior à sua data de preenchimento. 
-        Por exemplo, um informe solicitado em 2020 deverá conter os recebimentos acumulados de uma pessoa no ano de 
-        2019, de 1 de janeiro a 31 de dezembro.
-        O documento precisa ter todos os rendimentos tributáveis e os isentos de impostos. 
-        Além disso, devem ser registrados os ganhos com investimentos em renda fixa e variável.
-        O informe é um dos anexos que constam na DIRPF, a Declaração do Imposto sobre a Renda da Pessoa Física.
-        Por isso, seu preenchimento deve ser feito cuidadosamente. 
-        Qualquer desencontro de informações, dados incompletos ou errados podem causar problemas junto à 
-        Receita Federal, levando o contribuinte à chamada malha fina, ficando sujeito a multas e outras restrições.</p>
+    <p id="inform">
+A Construtora e Incorporadora Premoaço é reconhecida pela 
+criatividade e inovação sendo destaque no mercado nacional 
+pela qualidade, tradição e pelo compromisso com rigorosos prazos de entrega.
+Reconhecida pela criatividade e inovação, a Premoaço 
+construtora e incorporadora é destaque no mercado nacional 
+pela qualidade e os rigorosos prazos de entrega.
+A Premoaço tem mais de 40 anos de atuação no mercado imobiliário 
+e se encontra hoje em fase de expansão nos segmentos de 
+incorporação residencial, incorporação comercial e locação 
+de imóveis corporativos, logísticos,  entre outros.
+    </p>
        
     </div>
     
@@ -95,6 +108,159 @@ display: none;
 </div>
 </div>
 <script>
+
+window.addEventListener("resize", executa); 
+    
+     function executa(){
+        partilha()
+        const le= window.innerWidth;
+        console.log(le);
+     }
+     const le= window.innerWidth;
+if(le<=400){
+
+    window.scrollTo(0,1);
+
+}
+    
+    
+
+
+ ////função do qr code 
+ window.onload = partilha();
+ function partilha(){
+      let website = "https://premoaco.com.br/smart-card/cliente.html";
+      
+        let qrcodeContainer2 = document.getElementById("qrcode");
+        qrcodeContainer2.innerHTML = "";
+
+       let largura = window.innerWidth;
+       if(largura>1200){
+        largura=largura/4;
+       }else{
+       largura=largura/1.5;
+        }
+       largura=parseInt(largura);
+       console.log(largura);
+        new QRCode(qrcodeContainer2, {
+          text: website,
+          width:largura,
+          height:largura,
+          colorDark: "#8F0707",
+          colorLight: "#ffffff",
+          correctLevel: QRCode.CorrectLevel.H
+        });
+        
+      }   
+      
+
+function whats(x){
+      let website = x;
+      if (website) {
+        let qrcodeContainer2 = document.getElementById("qrcode");
+        qrcodeContainer2.innerHTML = "";
+
+        let largura = window.innerWidth;
+       if(largura>1200){
+        largura=largura/4;
+       }else{
+       largura=largura/1.5;
+        }
+       largura=parseInt(largura);
+       console.log(largura);
+        new QRCode(qrcodeContainer2, {
+          text: website,
+          width:largura,
+          height:largura,
+          colorDark: "#8F0707",
+          colorLight: "#ffffff",
+          correctLevel: QRCode.CorrectLevel.H
+        });
+        
+      } 
+    }
+
+    function email(x){
+      let website = x;
+      if (website) {
+        let qrcodeContainer2 = document.getElementById("qrcode");
+        qrcodeContainer2.innerHTML = "";
+
+        let largura = window.innerWidth;
+       if(largura>1200){
+        largura=largura/4;
+       }else{
+       largura=largura/1.5;
+        }
+       largura=parseInt(largura);
+       console.log(largura);
+        new QRCode(qrcodeContainer2, {
+          text: website,
+          width:largura,
+          height:largura,
+          colorDark: "#8F0707",
+          colorLight: "#ffffff",
+          correctLevel: QRCode.CorrectLevel.H
+        });
+        
+      } 
+    }
+
+    function tel(x){
+      let website = x;
+      if (website) {
+        let qrcodeContainer2 = document.getElementById("qrcode");
+        qrcodeContainer2.innerHTML = "";
+
+        let largura = window.innerWidth;
+       if(largura>1200){
+        largura=largura/4;
+       }else{
+       largura=largura/1.5;
+        }
+       largura=parseInt(largura);
+       console.log(largura);
+        new QRCode(qrcodeContainer2, {
+          text: website,
+          width:largura,
+          height:largura,
+          colorDark: "#8F0707",
+          colorLight: "#ffffff",
+          correctLevel: QRCode.CorrectLevel.H
+        });
+        
+      } 
+    }
+
+    function site(x){
+      let website = x;
+      if (website) {
+        let qrcodeContainer2 = document.getElementById("qrcode");
+        qrcodeContainer2.innerHTML = "";
+
+        let largura = window.innerWidth;
+       if(largura>1200){
+        largura=largura/4;
+       }else{
+       largura=largura/1.5;
+        }
+       largura=parseInt(largura);
+       console.log(largura);
+        new QRCode(qrcodeContainer2, {
+          text: website,
+          width:largura,
+          height:largura,
+          colorDark: "#8F0707",
+          colorLight: "#ffffff",
+          correctLevel: QRCode.CorrectLevel.H
+        });
+        
+      } 
+    }
+
+ ////função do qr code 
+
+
 function share(rede){
 	if (navigator.share !== undefined) {
 		navigator.share({
@@ -112,16 +278,20 @@ function ingles(){
     document.getElementById("btn1").style.display="none";
     console.log("ingles")
     document.getElementById("titulo").innerHTML="Construtora & Incorporadora";
-    document.getElementById("itemTexto").innerHTML="Informações:";
-    document.getElementById("telefone").innerHTML="Telefone:";
-    document.getElementById("infTitulo").innerHTML="Informações:";
-    document.getElementById("inform").innerHTML="Como o nome sugere, Informe de Rendimentos da Pessoa Física é um documento no qual constam todos os ganhos de "+ 
-    "um indivíduo ao longo de um período determinado. Normalmente, ele se refere ao ano imediatamente anterior à sua data de preenchimento. "+ 
-    "Por exemplo, um informe solicitado em 2020 deverá conter os recebimentos acumulados de uma pessoa no ano de 2019, de 1 de janeiro a 31 de dezembro. "+
-    "O documento precisa ter todos os rendimentos tributáveis e os isentos de impostos. Além disso, devem ser registrados os ganhos com investimentos em renda fixa e variável. "+
-    "O informe é um dos anexos que constam na DIRPF, a Declaração do Imposto sobre a Renda da Pessoa Física. Por isso, seu preenchimento deve ser feito cuidadosamente. "+ 
-    "Qualquer desencontro de informações, dados incompletos ou errados podem causar problemas junto à Receita Federal, levando o contribuinte à chamada malha fina, "+
-    "ficando sujeito a multas e outras restrições.";
+    document.getElementById("itemTexto").innerHTML="<b>Informações:</b>";
+    document.getElementById("telefone").innerHTML="<b>Telefone:</b> +55 41-3667-8384";
+    document.getElementById("part").innerHTML="<b>Partihar:</b>";
+
+ "A Construtora e Incorporadora Premoaço é reconhecida pela"+ 
+ "criatividade e inovação sendo destaque no mercado nacional "+ 
+ "pela qualidade, tradição e pelo compromisso com rigorosos prazos de entrega. "+
+ "Reconhecida pela criatividade e inovação, a Premoaço "+ 
+ "construtora e incorporadora é destaque no mercado nacional "+ 
+ "pela qualidade e os rigorosos prazos de entrega. "+
+ "A Premoaço tem mais de 40 anos de atuação no mercado imobiliário "+ 
+ "e se encontra hoje em fase de expansão nos segmentos de "+ 
+ "incorporação residencial, incorporação comercial e locação "+ 
+ "de imóveis corporativos, logísticos,  entre outros. ";
 
 }
 
@@ -130,18 +300,21 @@ function portugues(){
     document.getElementById("btn2").style.display="none";
     console.log("portugues")
     document.getElementById("titulo").innerHTML="Builder & Developer";
-    document.getElementById("itemTexto").innerHTML="Information:";
-    document.getElementById("telefone").innerHTML="telephone:";
-    document.getElementById("infTitulo").innerHTML="Information:";
+    document.getElementById("itemTexto").innerHTML="<b>Information:</b>";
+    document.getElementById("telefone").innerHTML="<b>Telephone:</b> +55 41-3667-8384";
+    document.getElementById("part").innerHTML="<b>Share:</b>";
     
 
-    document.getElementById("inform").innerHTML="As the name suggests, the Individual Income Report is a document in which all the earnings of  "+
-    "an individual over a specified period.Typically, it refers to the year immediately preceding its completion date.For example, a report "+
-    "requested in 2020 must contain the accrued receipts of a person in the year of 2019, from January 1st to December 31st. The document must "+
-    "have all taxable and tax-exempt income.In addition, gains from investments in fixed and variable income must be recorded. "+
-    "The report is one of the annexes included in the DIRPF, the Personal Income Tax Declaration.Therefore, its filling must be done carefully. "+
-    "Any mismatch of information, incomplete or wrong data can cause problems with the Federal Revenue, leading the taxpayer to the so-called "+
-    "fine mesh, being subject to fines and other restrictions.";
+    document.getElementById("inform").innerHTML="Builder & Developer Premoaço is recognized by the "+
+ "creativity and innovation being highlighted in the national market "+
+ "for quality, tradition and commitment to strict delivery times."+
+ "Recognized for creativity and innovation, Premoaço "+
+ "construction company and developer stands out in the national market "+
+ "for quality and strict delivery times. "+
+ "Premoaço has more than 40 years of experience in the real estate market "+
+ "and is currently in a phase of expansion in the segments of "+
+ "residential development, commercial development and leasing "+
+ "of corporate and logistical properties, among others.";
     
 
 }
